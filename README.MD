@@ -26,3 +26,19 @@ $ python3 main.py
 # start in windows 
 $ python main.py
 ```
+
+<h2 align="center">Tasks</h2>
+
+```bash
+1 /start
+
+2 /city and /coordinates
+
+3 /help
+
+4 /weather
+
+5 /notice_days and /notice_weeks
+
+6 /stop
+```
