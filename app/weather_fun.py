@@ -1,9 +1,4 @@
 from app.read_tokens import TOKEN_WEATHER
-
-with open('.env','r') as secret:
-    token = secret.readline()
-    WEATHER_TOKEN = token
-    
     
 def conclusion_function(weather):
     weather_info = (
@@ -18,7 +13,7 @@ def conclusion_function(weather):
  
  
 def request_API_OpenWeatherMap (city, language = 'en'):
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={WEATHER_TOKEN}"
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={TOKEN_WEATHER}"
     weather = requests.get(url).json()    
     return {
         'lon':weather.get('coord')['lon'],
@@ -35,7 +30,7 @@ def request_API_OpenWeatherMap (city, language = 'en'):
  
 def get_air_quality_index(city):
     result = request_API_OpenWeatherMap(city)
-    url = f"http://api.openweathermap.org/data/2.5/air_pollution?lat={result['lat']}&lon={result['lon']}&appid={WEATHER_TOKEN}"
+    url = f"http://api.openweathermap.org/data/2.5/air_pollution?lat={result['lat']}&lon={result['lon']}&appid={TOKEN_WEATHER}"
     return  requests.get(url).json()
     # 
     # 
@@ -44,7 +39,7 @@ def get_next_day_weather(city):
     current_date = int(datetime.datetime.today().strftime('%d'))
 
     result = request_API_OpenWeatherMap(city)
-    url = f"https://api.openweathermap.org/data/2.5/forecast?lat={result['lat']}&lon={result['lon']}&appid={WEATHER_TOKEN}"
+    url = f"https://api.openweathermap.org/data/2.5/forecast?lat={result['lat']}&lon={result['lon']}&appid={TOKEN_WEATHER}"
     response = requests.get(url).json()
  
     array = []
@@ -56,21 +51,6 @@ def get_next_day_weather(city):
                         f"облочность: {weather.get('weather')[0]['description']}\n"
                         f"скорость ветра: {weather.get('wind')['speed']} м.с\n"
                         f"относительную влажность воздуха: {weather.get('main')['humidity']}%\n"
-                        f"давление: {weather.get('main')['pressure']} миллиметрах ртутного столба\n") 
+                 f"давление: {weather.get('main')['pressure']} миллиметрах ртутного столба\n") 
     return array
 
-try:
-    city = input('Enter your city :')
-     
-    print(conclusion_function(request_API_OpenWeatherMap(city)))
-     
-    print('погода на следующий день')
-  
-  
-    weather_data = get_next_day_weather(city)
-    for weather in weather_data:
-        print(weather)
-    index_air = get_air_quality_index(city)
-    print(f"index air {index_air['list'][0]['main']['aqi']}")
-except Exception as e:
-    print(e)
