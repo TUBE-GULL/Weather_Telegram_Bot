@@ -5,7 +5,7 @@ from aiogram.types import Message
 
 #import models
 import app.keyboards as kb 
-import main
+# import main
 
 router = Router()
 
@@ -26,7 +26,7 @@ async def  cmd_start(message:Message):
     await message.answer(f"Hello! my friend {message.from_user.first_name.capitalize()}")
     # await message.answer(striker="AAMCAgADGQEAASyM5WaSal3GjNHELOrqFS6v-qulUdSLAAIBAQACVp29CiK-nw64wuY0AQAHbQADNQQ")  
     await message.answer(text=HELP_COMMANDS, parse_mode='HTML')  
-    await main.sticker("AAMCAgADGQEAASyM5WaSal3GjNHELOrqFS6v-qulUdSLAAIBAQACVp29CiK-nw64wuY0AQAHbQADNQQ")
+    # await main.sticker("AAMCAgADGQEAASyM5WaSal3GjNHELOrqFS6v-qulUdSLAAIBAQACVp29CiK-nw64wuY0AQAHbQADNQQ")
     # await bot.send_stiker(message.from_user.id, striker="")
                         # reply_markup=kb.main) #example keyboards in bottom 
                         # reply_markup=kb.settings) #example keyboards in message 
