@@ -2,9 +2,11 @@
 
 <h2 align="center">used aiogram</h2>
  <div align="center">
+  <a href="https://www.sqlite.org/index.html" target="_blank" rel="noreferrer"> <img src="https://www.sqlite.org/images/sqlite370_banner.gif" alt="python" width="60" height="60"/> </a>
  <a href="https://docs.aiogram.dev/en/latest/index.html" target="aiogram"><img src="https://docs.aiogram.dev/en/latest/_static/logo.png" alt="aiogram" width="60" height="60"/></a>
  <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="60" height="60"/> </a>
  </div>
+ <!-- https://www.sqlite.org/images/sqlite370_banner.gif -->
 
 
 
@@ -38,7 +40,7 @@ $ python main.py
 
 4 /weather
 
-5 /notice_days and /notice_weeks
+5 /days and /weeks
 
 6 /stop
 ```
