@@ -12,3 +12,17 @@ main= ReplyKeyboardMarkup(keyboard=[
 settings = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='text', url='http://cryptobumsnft.com/')]
 ])
+
+
+# weather_keyboard = ReplyKeyboardMarkup(
+#     keyboard=[
+#         [KeyboardButton(text="/time_weather"), KeyboardButton(text="/utc")]
+#     ],
+#     resize_keyboard=True
+# )
+
+
+weather_keyboard = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text="/time_weather", callback_data="/time_weather")],
+    [InlineKeyboardButton(text="/utc", callback_data="/utc")]
+])

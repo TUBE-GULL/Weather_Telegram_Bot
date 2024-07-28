@@ -19,7 +19,6 @@ router.include_router(stop)
 router.include_router(stop_days)
 router.include_router(stop_weeks)
 
-
 HELP_COMMANDS = """
 <b>/start</b> - <em>старт бот</em> 
 <b>/help</b> - <em>набор команд в бот </em>

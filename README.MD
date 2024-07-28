@@ -2,7 +2,7 @@
 
 <h2 align="center">used aiogram</h2>
  <div align="center">
-  <a href="https://www.sqlite.org/index.html" target="_blank" rel="noreferrer"> <img src="https://w7.pngwing.com/pngs/626/157/png-transparent-sqlite-database-logo-sql-feather-brand.png" alt="python" width="60" height="60"/> </a>
+  <a href="https://www.sqlite.org/index.html" target="_blank" rel="noreferrer"> <img src="https://github.com/devicons/devicon/blob/master/icons/sqlite/sqlite-original-wordmark.svg" alt="python" width="60" height="60"/> </a>
  <a href="https://docs.aiogram.dev/en/latest/index.html" target="aiogram"><img src="https://docs.aiogram.dev/en/latest/_static/logo.png" alt="aiogram" width="60" height="60"/></a>
  <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="60" height="60"/> </a>
  </div>
@@ -44,3 +44,30 @@ $ python main.py
 
 6 /stop
 ```
+<!-- 
+
+## Logic
+```bash
+
++---telegram_bot
+ +---start
+ |  +---weather
+ |   |   +---weather.py
+ |  |   +---help.py
+ |  |   +---audio.py
+ |  |   \---start.py
+ |  \---__init__.py
+ +---states
+ |  +---__init__.py
+ |  \---dowload.py
+ +---keyboards
+ |  |   +---inline
+ |   |   |---choice_but_start_test.py
+ |   |   \---__init__.py
+ |  \---__init__.py
+ +---utils
+ |  +---__init__.py
+ |  \---set_bot_commands.py
+ +---app.py
+\---loader.py
+``` -->
