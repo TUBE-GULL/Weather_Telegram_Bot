@@ -2,7 +2,7 @@
 from aiogram.types import (ReplyKeyboardMarkup,KeyboardButton,
                            InlineKeyboardMarkup,InlineKeyboardButton)
 
-main= ReplyKeyboardMarkup(keyboard=[
+main = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='catalog')],
     [KeyboardButton(text='trash'),KeyboardButton(text='contact')]
 ],
@@ -13,7 +13,6 @@ settings = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text='text', url='http://cryptobumsnft.com/')]
 ])
 
-
 # weather_keyboard = ReplyKeyboardMarkup(
 #     keyboard=[
 #         [KeyboardButton(text="/time_weather"), KeyboardButton(text="/utc")]
@@ -21,8 +20,7 @@ settings = InlineKeyboardMarkup(inline_keyboard=[
 #     resize_keyboard=True
 # )
 
-
 weather_keyboard = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text="/time_weather", callback_data="/time_weather")],
-    [InlineKeyboardButton(text="/utc", callback_data="/utc")]
+    [InlineKeyboardButton(text="/weather_now", callback_data="/weather_now")]
 ])
