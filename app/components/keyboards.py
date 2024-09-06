@@ -24,3 +24,24 @@ weather_keyboard = InlineKeyboardMarkup(inline_keyboard=[
     [InlineKeyboardButton(text="/time_weather", callback_data="/time_weather")],
     [InlineKeyboardButton(text="/weather_now", callback_data="/weather_now")]
 ])
+
+
+# weather_coordinates_and_city_keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(
+#     KeyboardButton('написать город  🏙')
+# ).add(
+#     KeyboardButton('Отправить свою локацию 🗺️', request_location=True)
+# )
+
+weather_coordinates_and_city_keyboard_ru = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text='Написать город  🏙'), KeyboardButton(text='Отправить свою локацию 🗺️', request_location=True)]
+    ],
+    resize_keyboard=True, # min size 
+    one_time_keyboard=True, 
+)
+
+weather_coordinates_and_city_keyboard_en = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text='Write the city  🏙'), KeyboardButton(text='Send your location 🗺️', request_location=True)]
+    ],
+    resize_keyboard=True, # min size 
+    one_time_keyboard=True, 
+)

@@ -40,6 +40,7 @@ commands = {
             ''',
             "погода  на сегодня!"
         ]
+        # 'https://www.google.com/maps/@26.2415321,-171.3732363,2.84z?hl=ru&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D'
     },
     'en':{
         'START_COMMANDS': [

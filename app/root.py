@@ -34,6 +34,7 @@ async def get_photo(message:Message):
 # command HELP !
 @router.message(Command('help'))
 async def get_help(message:Message):
+    print(message.from_user)
     lan = message.from_user.language_code
     await message.answer(f"{commands[lan]['HELP_COMMANDS'][0]}")
     await message.answer(text=commands[lan]['HELP_COMMANDS'][1], parse_mode='HTML')

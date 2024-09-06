@@ -3,27 +3,14 @@ import datetime
 from app.components.read_tokens import TOKEN_WEATHER
 
 
-# def conclusion_function(weather):
-#     weather_info = (
-#         f"ваш город : {weather['city']}\n"
-#         f"температура: {weather['temp']}℃\n"
-#         f"температуру по ощущениям: {weather['feels_like']}℃\n"
-#         f"облочность: {weather['description']}\n"
-#         f"скорость ветра: {weather['wind speed']} м.с\n"
-#         f"относительную влажность воздуха: {weather['humidity']}%\n"
-#         f"давление: {weather['pressure']} миллиметрах ртутного столба")  
-#     return weather_info
- 
- 
-def request_API_OpenWeatherMap (city, language = 'en'):
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={TOKEN_WEATHER}"
+async def request_city_API_OpenWeatherMap (city, language = 'en'):    
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={city.lower()}&appid={TOKEN_WEATHER}"
     response = requests.get(url)  
-    
-    print(response)
+
     if response.status_code != 200:
         return False
-    
-    weather = response.json()
+    else:
+        weather = response.json()
     
     return {
         'lon':weather.get('coord')['lon'],
@@ -37,9 +24,33 @@ def request_API_OpenWeatherMap (city, language = 'en'):
         'pressure': weather.get('main')['pressure'],
         }
  
- 
+     
+async def request_coordinates_API_OpenWeatherMap(coordinates):
+    lat,lon = coordinates.split(',')
+    url = f"https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={TOKEN_WEATHER}"
+    response = requests.get(url)  
+    
+    if response.status_code != 200:
+        return False
+    else:
+        weather = response.json()
+        print(weather)
+        return {
+            'lon':lon,
+            'lat':lat,
+            # 'city' :city,
+            'temp': weather['list'][0]['main']['temp'],
+            # 'feels_like': weather.get('main')['feels_like'],
+            'description': weather['list'][0]['weather'][0]['description'],
+            # "wind speed": weather.get('wind')['speed'],
+            # 'humidity': weather.get('main')['humidity'],
+            # 'pressure': weather.get('main')['pressure'],
+            }
+    
+
+
 def get_air_quality_index(city):
-    result = request_API_OpenWeatherMap(city)
+    result = request_city_API_OpenWeatherMap(city)
     url = f"http://api.openweathermap.org/data/2.5/air_pollution?lat={result['lat']}&lon={result['lon']}&appid={TOKEN_WEATHER}"
     return  requests.get(url).json()
 
@@ -49,7 +60,7 @@ def get_next_day_weather(city):
     #получаю текущие время 
     current_date = int(datetime.datetime.today().strftime('%d'))
 
-    result = request_API_OpenWeatherMap(city)
+    result = request_city_API_OpenWeatherMap(city)
     url = f"https://api.openweathermap.org/data/2.5/forecast?lat={result['lat']}&lon={result['lon']}&appid={TOKEN_WEATHER}"
     response = requests.get(url).json()
     
