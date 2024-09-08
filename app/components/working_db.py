@@ -16,8 +16,9 @@ class DataBase:
                                 time_zone INTEGER,
                                 city  TEXT,
                                 coordinates TEXT,
-                                alarm_day TEXT,
-                                alarm_wether TEXT 
+                                alarm_day INTEGER,
+                                alarm_week INTEGER,
+                                question TEXT
                              );
                              ''')
             await db.commit()
@@ -48,3 +49,13 @@ class DataBase:
                 else:
                     return None 
 
+
+    #fun for Newsletter
+    async def get_all_users_with_time(self):
+        async with aiosqlite.connect(self.db_name) as db:
+            async with db.execute("SELECT user_id, time_zone, alarm_day, alarm_week FROM data_users") as cursor:
+                rows = await cursor.fetchall()
+                return rows
+        
+        
+        

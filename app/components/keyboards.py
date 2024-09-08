@@ -45,3 +45,22 @@ weather_coordinates_and_city_keyboard_en = ReplyKeyboardMarkup(keyboard=[
     resize_keyboard=True, # min size 
     one_time_keyboard=True, 
 )
+
+
+
+yes_no_keyboard_ru = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text='Да'), KeyboardButton(text='Нет')]
+    ],
+    resize_keyboard=True,
+    one_time_keyboard=True
+)
+
+
+yes_no_keyboard_en = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text='yes'), KeyboardButton(text='no')]
+    ],
+    resize_keyboard=True,
+    one_time_keyboard=True
+)

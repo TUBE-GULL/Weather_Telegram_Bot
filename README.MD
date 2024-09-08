@@ -48,6 +48,17 @@ $ python main.py
 
 6 /stop
 ```
+
+
+<h2 align="center">ERROR</h2>
+
+```bash
+1 authorization check
+
+
+```
+
+
 <!-- 
 
 ## Logic
